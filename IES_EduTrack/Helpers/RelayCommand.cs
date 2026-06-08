@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace AfriMarket.Helpers;
+namespace IES_EduTrack.Helpers;  
 
 // Generisk kommandoklass som kopplar knappklick i vyn till metoder i ViewModel
 // Referens: https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.icommand

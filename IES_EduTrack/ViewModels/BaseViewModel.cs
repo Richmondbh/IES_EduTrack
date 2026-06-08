@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+
 namespace IES_EduTrack.ViewModels
 {
     /// <summary>

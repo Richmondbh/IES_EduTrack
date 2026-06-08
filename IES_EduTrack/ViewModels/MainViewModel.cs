@@ -1,27 +1,75 @@
-﻿using IES_EduTrack.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#nullable disable
+
+
+using IES_EduTrack.Helpers;
+using IES_EduTrack.Models;
+using IES_EduTrack.Services;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace IES_EduTrack.ViewModels
 {
+    /// <summary>
+    /// Root ViewModel — owns all service instances and coordinates
+    /// navigation between the three main views via CurrentViewModel.
+    /// </summary>
     public class MainViewModel : BaseViewModel
     {
-        public StudentService StudentService
+        private readonly FileService _fileService;
+        private readonly StudentService _studentService;
+        private readonly AttendanceService _attendanceService;
+        private readonly GradeService _gradeService;
+
+        private BaseViewModel _currentViewModel;
+
+        // The active child ViewModel — View binds ContentControl to this
+        public BaseViewModel CurrentViewModel
         {
-            get => default;
+            get { return _currentViewModel; }
             set
             {
+                _currentViewModel = value;
+                OnPropertyChanged(nameof(CurrentViewModel));
             }
         }
 
-        public StudentService StudentService1
+        // Navigation commands — bound to sidebar/menu buttons in MainWindow
+        public ICommand ShowStudentsCommand { get; }
+        public ICommand ShowAttendanceCommand { get; }
+        public ICommand ShowGradesCommand { get; }
+
+        // Constructor — creates all services here; they are never created elsewhere
+        public MainViewModel()
         {
-            get => default;
-            set
-            {
-            }
+            _fileService = new FileService();
+            _studentService = new StudentService(_fileService);
+            _attendanceService = new AttendanceService(_fileService);
+            _gradeService = new GradeService(_fileService);
+
+            ShowStudentsCommand = new RelayCommand(_ => NavigateToStudents());
+            ShowAttendanceCommand = new RelayCommand(_ => NavigateToAttendance());
+            ShowGradesCommand = new RelayCommand(_ => NavigateToGrades());
+
+            // Start on the student view
+            NavigateToStudents();
+        }
+
+        // Switches the active view to StudentViewModel
+        private void NavigateToStudents()
+        {
+            CurrentViewModel = new StudentViewModel(_studentService);
+        }
+
+        // Switches the active view to AttendanceViewModel
+        private void NavigateToAttendance()
+        {
+            CurrentViewModel = new AttendanceViewModel(_attendanceService, _studentService);
+        }
+
+        // Switches the active view to GradeViewModel
+        private void NavigateToGrades()
+        {
+            CurrentViewModel = new GradeViewModel(_gradeService, _studentService);
         }
     }
 }

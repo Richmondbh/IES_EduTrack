@@ -6,7 +6,7 @@
   <Class Name="IES_EduTrack.ViewModels.AttendanceViewModel" Collapsed="true">
     <Position X="5.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>YAIKAIIgEIAQEEAAigQAABMSEAAAAICIAggoAAAAAAo=</HashCode>
       <FileName>ViewModels\AttendanceViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -21,59 +21,37 @@
   <Class Name="IES_EduTrack.ViewModels.GradeViewModel" Collapsed="true">
     <Position X="7.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>QAIIAIMAsJAYgCEAiCAgAHEQAAAgEACMAgAoAAEAAAo=</HashCode>
       <FileName>ViewModels\GradeViewModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="GradeService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IES_EduTrack.ViewModels.MainViewModel" Collapsed="true">
     <Position X="9.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEICCAAAQAAIEAQAAAAAAEAAAAAAIAAFAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\MainViewModel.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="StudentService1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IES_EduTrack.Services.AttendanceService" Collapsed="true">
     <Position X="6.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAIoggAAAAIAAAAJAAAAAAEAAAAAAAAAAABAAAEAA=</HashCode>
       <FileName>Services\AttendanceService.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="FileService1" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="IES_EduTrack.Services.FileService" Collapsed="true">
-    <Position X="11" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Services\FileService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IES_EduTrack.Services.GradeService" Collapsed="true">
     <Position X="8.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAgAAiAAAAIAEAAgAQAAQAAAAAAQAAABEAAAAAEAA=</HashCode>
       <FileName>Services\GradeService.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="FileService" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IES_EduTrack.Services.StudentService" Collapsed="true">
     <Position X="4.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIgQBAEIAAEAAAAAAEAAAAAAAAIAAIAQCAAEAA=</HashCode>
       <FileName>Services\StudentService.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="FileService1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IES_EduTrack.Models.AttendanceReport" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.25" Y="4.5" Width="1.5" />
@@ -97,14 +75,6 @@
       <FileName>Models\Student.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AfriMarket.Helpers.RelayCommand" Collapsed="true">
-    <Position X="10.5" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Helpers\RelayCommand.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="IES_EduTrack.Models.Person" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -125,6 +95,13 @@
     <TypeIdentifier>
       <HashCode>gAAAJIAAEAABAAAEAAAACAQAAAABgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IES_EduTrack.Services.FileService" Collapsed="true">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIACAAAAAAAAAAAAAAAAACAAAAAAAAABAAACAAA=</HashCode>
+      <FileName>Services\FileService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="IES_EduTrack.Interfaces.IReportable" Collapsed="true">
