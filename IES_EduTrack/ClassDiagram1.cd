@@ -13,9 +13,10 @@
   <Class Name="IES_EduTrack.ViewModels.BaseViewModel" Collapsed="true">
     <Position X="7.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\BaseViewModel.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="IES_EduTrack.ViewModels.GradeViewModel" Collapsed="true">
     <Position X="7.5" Y="9.25" Width="1.5" />
@@ -74,89 +75,62 @@
       <Property Name="FileService1" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="IES_EduTrack.Models.AttendanceRecord" Collapsed="true">
-    <Position X="4.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\AttendanceRecord.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="IES_EduTrack.Models.AttendanceReport" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAIIAAEAEAAAAAAACAAAAAEEAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Models\AttendanceReport.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="IReportable" />
-      <Property Name="AttendanceRecord" />
-    </ShowAsAssociation>
     <Lollipop Position="1.3" Collapsed="true" />
   </Class>
-  <Class Name="IES_EduTrack.Models.GradeEntry" Collapsed="true">
-    <Position X="9.75" Y="3.25" Width="1.5" />
+  <Class Name="IES_EduTrack.Models.Staff" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\GradeEntry.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAQAEAAAAAAAEAAAAAAAAAABAAAACAA=</HashCode>
+      <FileName>Models\Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IES_EduTrack.Models.Student" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUACAAAGABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AfriMarket.Helpers.RelayCommand" Collapsed="true">
+    <Position X="10.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IES_EduTrack.Models.Person" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAAAAFAIAAAAQAAAAQAAAAAAAAAAAQAAE=</HashCode>
+      <FileName>Models\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IES_EduTrack.Models.GradeReport" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="8.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIIABEAEAACEAAACAAAAAAAAAAAAAAAAIAAAAAAI=</HashCode>
       <FileName>Models\GradeReport.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="IReportable" />
-      <Property Name="GradeEntry" />
-    </ShowAsAssociation>
     <Lollipop Position="0.1" Collapsed="true" />
-  </Class>
-  <Class Name="IES_EduTrack.Models.Person" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAEAAAAAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IES_EduTrack.Models.Staff" Collapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Staff.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Subject" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="IES_EduTrack.Models.Student" Collapsed="true">
-    <Position X="8.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Student.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Subject" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IES_EduTrack.Models.Subject" Collapsed="true">
     <Position X="10.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAEAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAJIAAEAABAAAEAAAACAQAAAABgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Subject.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IES_EduTrack.Helpers.RelayCommand" Collapsed="true">
-    <Position X="10.5" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Helpers\RelayCommand.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="IES_EduTrack.Interfaces.IReportable" Collapsed="true">
     <Position X="7.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IReportable.cs</FileName>
     </TypeIdentifier>
   </Interface>

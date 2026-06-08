@@ -1,11 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace IES_EduTrack.Models
 {
-    public class AttendanceRecord
+    /// <summary>
+    /// Immutable record of a single attendance event.
+    /// Records cannot be changed after creation — use C# record type.
+    /// </summary>
+    public record AttendanceRecord
     {
+        public string RecordId { get; init; }
+        public string StudentId { get; init; }
+        public string SubjectId { get; init; }
+        public DateTime Date { get; init; }
+        public bool IsPresent { get; init; }
     }
 }

@@ -1,11 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Windows.Input;
 
-namespace IES_EduTrack.Helpers
+namespace AfriMarket.Helpers;
+
+// Generisk kommandoklass som kopplar knappklick i vyn till metoder i ViewModel
+// Referens: https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.icommand
+public class RelayCommand : ICommand
 {
-    public class RelayCommand
+    private readonly Action<object?> _execute;
+    private readonly Func<object?, bool>? _canExecute;
+
+    public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
     {
+        _execute = execute;
+        _canExecute = canExecute;
     }
+
+    public event EventHandler? CanExecuteChanged
+    {
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
+    }
+
+    public bool CanExecute(object? parameter) => _canExecute?.Invoke(parameter) ?? true;
+    public void Execute(object? parameter) => _execute(parameter);
 }
