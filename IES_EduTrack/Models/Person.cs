@@ -49,7 +49,7 @@ namespace IES_EduTrack.Models
             set { _dateOfBirth = value; }
         }
 
-        // Returns display-friendly full name — used in ListBox bindings
+        // This Returns display friendly full name  used in ListBox bindings
         public virtual string GetDisplayName()
         {
             return _name;

@@ -6,8 +6,7 @@ namespace IES_EduTrack.ViewModels
 {
     /// <summary>
     /// Abstract base for all ViewModels. Implements INotifyPropertyChanged
-    /// so the WPF binding engine updates the UI when properties change.
-    /// Carried from Assignment 5 (CashFlowManager) and AfriMarket.
+    /// so the WPF binding engine updates the UI when properties change
     /// </summary>
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

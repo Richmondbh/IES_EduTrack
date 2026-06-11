@@ -5,8 +5,8 @@ using IES_EduTrack.Interfaces;
 namespace IES_EduTrack.Models
 {
     /// <summary>
-    /// Aggregates attendance records for a subject over a period.
-    /// Implements IReportable to satisfy the dynamic binding requirement.
+    /// Aggregates attendance records for a subject over a period of time.
+    /// Implemented IReportable to satisfy the dynamic binding requirement.
     /// </summary>
     public class AttendanceReport : IReportable
     {
@@ -45,13 +45,13 @@ namespace IES_EduTrack.Models
             return (double)absentCount / _records.Count * 100;
         }
 
-        // IReportable — full detail string for report view
+        // IReportable for the full detail string for report view
         public string GenerateReport()
         {
             return $"Attendance Report | Subject: {_subjectId} | Period: {_period} | Absence Rate: {GetAbsenceRate():F1}%";
         }
 
-        // IReportable — short summary for list display
+        // IReportable is a short summary for list display
         public string GetSummary()
         {
             return $"{_subjectId} — {_period} — {_records?.Count ?? 0} records";

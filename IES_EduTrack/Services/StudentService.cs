@@ -7,8 +7,8 @@ using IES_EduTrack.Models;
 namespace IES_EduTrack.Services
 {
     /// <summary>
-    /// Manages the in-memory student list and persists it via FileService.
-    /// Owns the list — ViewModels never hold or modify student data directly.
+    /// This class manages the in-memory student list and persists it via FileService.
+    /// Owns the list so that ViewModels never hold or modify student data directly.
     /// </summary>
     public class StudentService
     {
@@ -25,13 +25,13 @@ namespace IES_EduTrack.Services
             LoadFromFile();
         }
 
-        // Returns all students as a read-only list — callers cannot modify the list
+        // Returns all students as a read-only list  so callers cannot modify the list
         public IReadOnlyList<Student> GetAllStudents()
         {
             return _students.AsReadOnly();
         }
 
-        // Finds a student by PersonId — returns null if not found
+        // Finds a student by PersonId and returns null if not found
         public Student GetStudentById(string personId)
         {
             return (from student in _students
@@ -39,7 +39,7 @@ namespace IES_EduTrack.Services
                     select student).FirstOrDefault();
         }
 
-        // Returns all students in a given class group, e.g. "9A"
+        // Returns all students in a given class group fo4r example "9A" osv
         public List<Student> GetStudentsByClassGroup(string classGroup)
         {
             return (from student in _students
@@ -55,7 +55,7 @@ namespace IES_EduTrack.Services
                     select student).ToList();
         }
 
-        // Searches by display name — case-insensitive, returns all if term is empty
+        // Searches by display name and is case-insensitive. It returns all if term is empty.
         public List<Student> SearchStudentsByName(string searchTerm)
         {
             if (string.IsNullOrWhiteSpace(searchTerm))
@@ -63,6 +63,7 @@ namespace IES_EduTrack.Services
                 return _students.ToList();
             }
 
+            //wants to make all teext lower
             string term = searchTerm.ToLower();
 
             return (from student in _students
@@ -70,7 +71,7 @@ namespace IES_EduTrack.Services
                     select student).ToList();
         }
 
-        // Adds a student — rejects null or duplicate PersonId, returns false if rejected
+        // Method which Adds a student and  rejects null or duplicate PersonId, returns false if rejected
         public bool AddStudent(Student student)
         {
             if (student == null)
@@ -92,7 +93,7 @@ namespace IES_EduTrack.Services
             return true;
         }
 
-        // Updates a student matched by PersonId — returns false if not found
+        // Updates a student matched by PersonId  and  returns false if not found
         public bool UpdateStudent(Student updatedStudent)
         {
             if (updatedStudent == null)
@@ -112,7 +113,7 @@ namespace IES_EduTrack.Services
             return true;
         }
 
-        // Removes a student by PersonId — returns false if not found
+        // Removes a student by PersonId and returns false if not found
         public bool RemoveStudent(string personId)
         {
             Student target = GetStudentById(personId);

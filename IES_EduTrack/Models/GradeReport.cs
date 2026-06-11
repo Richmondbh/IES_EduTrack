@@ -33,8 +33,8 @@ namespace IES_EduTrack.Models
             set { _entries = value; }
         }
 
-        // Average is not meaningful for A–F grades; this returns entry count instead
-        // If numeric grades are added later, replace with a real average calculation
+        // Average is not meaningful for A–F grades here so this returns entry count instead
+        // If numeric grades are added later, it replaces it with a real average calculation
         public int GetEntryCount()
         {
             if (_entries == null)
@@ -42,17 +42,19 @@ namespace IES_EduTrack.Models
 
             return _entries.Count();
         }
-        // Grade distribution summary, e.g. "A:3 B:5 C:2"
+        // Grade distribution summary for example A=3 B=5 C=2 etc 
+        // just extra implementation is added for the grades
         public string GetGradeDistribution()
         {
             if (_entries == null || !_entries.Any())
                 return "No entries";
 
-            return _entries
-                .GroupBy(e => e.Grade)
-                .OrderBy(g => g.Key)
-                .Select(g => $"{g.Key}:{g.Count()}")
-                .Aggregate((current, next) => $"{current} {next}");
+            return string.Join(" ",
+            _entries
+                    .GroupBy(e => e.Grade)
+                    .OrderBy(g => g.Key)
+                    .Select(g => $"{g.Key}:{g.Count()}"));
+
         }
         public string GenerateReport()
         {

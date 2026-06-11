@@ -11,7 +11,7 @@ using System.Windows.Input;
 namespace IES_EduTrack.ViewModels
 {
     /// <summary>
-    /// Manages the attendance view — record attendance events and generate
+    /// This manages the attendance view, record attendance events and generate
     /// attendance reports per subject and period.
     /// </summary>
     public class AttendanceViewModel : BaseViewModel
@@ -64,7 +64,8 @@ namespace IES_EduTrack.ViewModels
         }
 
         public bool IsPresent
-        {
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
             get { return _isPresent; }
             set { _isPresent = value; OnPropertyChanged(nameof(IsPresent)); }
         }
@@ -87,7 +88,7 @@ namespace IES_EduTrack.ViewModels
             set { _reportPeriod = value; OnPropertyChanged(nameof(ReportPeriod)); }
         }
 
-        // Bound to a read-only TextBox — displays generated report text
+        // Bound to a readonly TextBox which displays generated report text
         public string ReportOutput
         {
             get { return _reportOutput; }
@@ -99,7 +100,7 @@ namespace IES_EduTrack.ViewModels
         public ICommand GenerateReportCommand { get; }
         public ICommand ClearFormCommand { get; }
 
-        // Constructor — sets today as default date, loads students and all records
+        // sets today as default date, loads students and all records
         public AttendanceViewModel(AttendanceService attendanceService, StudentService studentService)
         {
             _attendanceService = attendanceService;
@@ -188,7 +189,7 @@ namespace IES_EduTrack.ViewModels
         private bool CanExecuteAddRecord()
         {
             return _selectedStudent != null
-                && !string.IsNullOrWhiteSpace(_subjectId);
+           && !string.IsNullOrWhiteSpace(_subjectId);
         }
 
         // Report requires both subject and period fields

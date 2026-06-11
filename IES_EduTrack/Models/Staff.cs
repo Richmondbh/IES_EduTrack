@@ -2,8 +2,8 @@
 namespace IES_EduTrack.Models
 {
     /// <summary>
-    /// Represents a staff member such as a teacher or coordinator.
-    /// Inherits shared identity fields from Person.
+    /// Represents a staff member such as a teacher or school coordinator.
+    /// It also inherits shared identity fields from Person.
     /// </summary>
     public class Staff : Person
     {
@@ -28,20 +28,12 @@ namespace IES_EduTrack.Models
             return _role.ToString();
         }
 
-        // Teachers and coordinators can manage grades; admins cannot
+        // Teachers and coordinators can manage grades but admins cannot
         public bool CanManageGrades()
         {
             return _role == StaffRole.Teacher || _role == StaffRole.Coordinator;
         }
     }
 
-    /// <summary>
-    /// Role categories for staff members.
-    /// </summary>
-    public enum StaffRole
-    {
-        Teacher,
-        Coordinator,
-        Admin
-    }
+    
 }

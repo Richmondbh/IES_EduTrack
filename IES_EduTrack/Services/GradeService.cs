@@ -17,7 +17,7 @@ namespace IES_EduTrack.Services
         private readonly FileService _fileService;
         private List<GradeEntry> _entries;
 
-        // Constructor — loads existing entries from disk on startup
+        // loads existing entries from disk on startup
         public GradeService(FileService fileService)
         {
             _fileService = fileService;
@@ -56,8 +56,8 @@ namespace IES_EduTrack.Services
                     select entry).ToList();
         }
 
-        // Adds a grade entry — rejects null, returns false if rejected
-        // GradeEntry is an immutable record — no update path exists, use RemoveEntry + AddEntry
+        // Adds a grade entry rejects null and returns false if rejected
+        // GradeEntry is an immutable record so no update path exists, I used RemoveEntry + AddEntry
         public bool AddEntry(GradeEntry entry)
         {
             if (entry == null)
@@ -102,7 +102,7 @@ namespace IES_EduTrack.Services
             return report;
         }
 
-        // Returns the most recent grade entry for a student in a subject — null if none
+        // Returns the most recent grade entry for a student in a subject . null if none is available
         public GradeEntry GetLatestGrade(string studentId, string subjectId)
         {
             return (from entry in _entries
@@ -118,7 +118,7 @@ namespace IES_EduTrack.Services
             _fileService.Save(GradesFileName, _entries);
         }
 
-        // Loads from disk — keeps empty list if file does not exist yet
+        // Loads from disk  and keeps empty list if file does not exist yet
         private void LoadFromFile()
         {
             List<GradeEntry> loaded = _fileService.Load<List<GradeEntry>>(GradesFileName);

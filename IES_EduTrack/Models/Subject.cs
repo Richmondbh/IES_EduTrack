@@ -7,7 +7,7 @@ namespace IES_EduTrack.Models
 {
     /// <summary>
     /// Represents a school subject with an assigned teacher.
-    /// EnrolledStudents is excluded from JSON to avoid circular reference with Student.
+    /// EnrolledStudents is intentionally excluded from JSON to avoid circular reference with Student.
     /// </summary>
     public class Subject
     {
@@ -29,7 +29,7 @@ namespace IES_EduTrack.Models
             set { _name = value; }
         }
 
-        // Stores the id only — full Staff object resolved at runtime
+        // Stores  id only 
         public string TeacherId
         {
             get { return _teacherId; }

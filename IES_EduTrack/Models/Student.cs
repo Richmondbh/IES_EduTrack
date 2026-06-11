@@ -43,14 +43,4 @@ namespace IES_EduTrack.Models
             return $"{GetDisplayName()} | Class: {_classGroup} | Enrolled: {_enrollmentDate:yyyy-MM-dd} | Status: {_status}";
         }
     }
-
-    /// <summary>
-    /// Enrollment status options for a student.
-    /// </summary>
-    public enum StudentStatus
-    {
-        Active,
-        Inactive,
-        Withdrawn
-    }
 }

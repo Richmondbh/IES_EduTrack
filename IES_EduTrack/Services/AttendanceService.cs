@@ -8,8 +8,8 @@ using IES_EduTrack.Models;
 namespace IES_EduTrack.Services
 {
     /// <summary>
-    /// Manages attendance records and produces AttendanceReport objects.
-    /// Reports are grouped by subject — matching AttendanceReport's SubjectId/Period shape.
+    /// This calss manages attendance records and produces AttendanceReport objects.
+    /// Reports are grouped by subject which matches AttendanceReport's SubjectId/Period shape.
     /// </summary>
     public class AttendanceService
     {
@@ -18,7 +18,7 @@ namespace IES_EduTrack.Services
         private readonly FileService _fileService;
         private List<AttendanceRecord> _records;
 
-        // Constructor — loads existing records from disk on startup
+        // loads existing records from disk on startup
         public AttendanceService(FileService fileService)
         {
             _fileService = fileService;

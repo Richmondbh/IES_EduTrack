@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="IES_EduTrack.Views.StudentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style x:Key="FormLabel" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin"     Value="0,8,0,2"/>
+            <Setter Property="Foreground" Value="#2C3E50"/>
+        </Style>
+        <Style x:Key="FormBox" TargetType="TextBox">
+            <Setter Property="Height"  Value="32"/>
+            <Setter Property="Padding" Value="6,4"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+        </Style>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Height"  Value="34"/>
+            <Setter Property="Padding" Value="16,0"/>
+            <Setter Property="Cursor"  Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="24">
+        <Grid.ColumnDefinitions>
+            <!-- Student list -->
+            <ColumnDefinition Width="*"/>
+            <!-- Form panel -->
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left: list + search -->
+        <Grid Grid.Column="0" Margin="0,0,16,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Text="Students"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Foreground="#2C3E50"
+                       Margin="0,0,0,12"/>
+
+            <!-- Search box -->
+            <TextBox Grid.Row="1"
+                     Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"
+                     Height="32"
+                     Padding="6,4"
+                     BorderBrush="#BDC3C7"
+                     Margin="0,0,0,8">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Tag" Value="Search by name..."/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <!-- Student list -->
+            <Border Grid.Row="2" BorderBrush="#BDC3C7" BorderThickness="1">
+                <ListBox ItemsSource="{Binding Students}"
+                         SelectedItem="{Binding SelectedStudent}"
+                         DisplayMemberPath="Name"
+                         FontSize="13"/>
+            </Border>
+        </Grid>
+
+        <!-- Right: add / edit form -->
+        <Border Grid.Column="1"
+                Background="White"
+                BorderBrush="#BDC3C7"
+                BorderThickness="1"
+                Padding="16"
+                VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="Student Details"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="#2C3E50"
+                           Margin="0,0,0,8"/>
+
+                <Separator Margin="0,0,0,8"/>
+
+                <TextBlock Text="Full Name *" Style="{StaticResource FormLabel}"/>
+                <TextBox Text="{Binding InputName, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource FormBox}"/>
+
+                <TextBlock Text="Email" Style="{StaticResource FormLabel}"/>
+                <TextBox Text="{Binding InputEmail, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource FormBox}"/>
+
+                <TextBlock Text="Class Group *" Style="{StaticResource FormLabel}"/>
+                <TextBox Text="{Binding InputClassGroup, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource FormBox}"/>
+
+                <TextBlock Text="Status" Style="{StaticResource FormLabel}"/>
+                <ComboBox ItemsSource="{Binding StatusOptions}"
+                          SelectedItem="{Binding InputStatus}"
+                          Height="32"
+                          Padding="6,4"/>
+
+                <!-- Action buttons -->
+                <Button Content="Add Student"
+                        Command="{Binding AddStudentCommand}"
+                        Style="{StaticResource ActionButton}"
+                        Background="#27AE60"
+                        Foreground="White"
+                        Margin="0,16,0,4"/>
+
+                <Button Content="Update Selected"
+                        Command="{Binding UpdateStudentCommand}"
+                        Style="{StaticResource ActionButton}"
+                        Background="#2980B9"
+                        Foreground="White"
+                        Margin="0,4,0,4"/>
+
+                <Button Content="Remove Selected"
+                        Command="{Binding RemoveStudentCommand}"
+                        Style="{StaticResource ActionButton}"
+                        Background="#E74C3C"
+                        Foreground="White"
+                        Margin="0,4,0,4"/>
+
+                <Button Content="Clear Form"
+                        Command="{Binding ClearFormCommand}"
+                        Style="{StaticResource ActionButton}"
+                        Background="#95A5A6"
+                        Foreground="White"
+                        Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

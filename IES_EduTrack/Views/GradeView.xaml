@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="IES_EduTrack.Views.GradeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style x:Key="FormLabel" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin"     Value="0,8,0,2"/>
+            <Setter Property="Foreground" Value="#2C3E50"/>
+        </Style>
+        <Style x:Key="FormBox" TargetType="TextBox">
+            <Setter Property="Height"  Value="32"/>
+            <Setter Property="Padding" Value="6,4"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+        </Style>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Height"  Value="34"/>
+            <Setter Property="Padding" Value="16,0"/>
+            <Setter Property="Cursor"  Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Grades"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="#2C3E50"
+                   Margin="0,0,0,16"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: entry list -->
+            <Grid Grid.Column="0" Margin="0,0,16,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Filter bar -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
+                    <TextBlock Text="Filter by student:"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0"
+                               Foreground="#2C3E50"/>
+                    <ComboBox ItemsSource="{Binding Students}"
+                              SelectedItem="{Binding SelectedStudent}"
+                              DisplayMemberPath="Name"
+                              Width="180"
+                              Height="32"/>
+                    <Button Content="Load"
+                            Command="{Binding LoadEntriesCommand}"
+                            Style="{StaticResource ActionButton}"
+                            Background="#2980B9"
+                            Foreground="White"
+                            Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <!-- Grade entry list -->
+                <Border Grid.Row="1" BorderBrush="#BDC3C7" BorderThickness="1">
+                    <ListBox ItemsSource="{Binding Entries}"
+                             SelectedItem="{Binding SelectedEntry}"
+                             FontSize="12">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding StudentId}" Width="120"/>
+                                    <TextBlock Text="{Binding SubjectId}" Width="100"/>
+                                    <TextBlock Text="{Binding Grade}"
+                                               Width="40"
+                                               FontWeight="Bold"
+                                               Foreground="#2980B9"/>
+                                    <TextBlock Text="{Binding Date, StringFormat=yyyy-MM-dd}" Width="90"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+
+                <!-- Remove button below list -->
+                <Button Grid.Row="2"
+                        Content="Remove Selected Entry"
+                        Command="{Binding RemoveEntryCommand}"
+                        Style="{StaticResource ActionButton}"
+                        Background="#E74C3C"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        Margin="0,8,0,0"/>
+            </Grid>
+
+            <!-- Right: two panels stacked -->
+            <StackPanel Grid.Column="1">
+
+                <!-- Add grade form -->
+                <Border Background="White"
+                        BorderBrush="#BDC3C7"
+                        BorderThickness="1"
+                        Padding="16"
+                        Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Text="Add Grade Entry"
+                                   FontSize="15"
+                                   FontWeight="Bold"
+                                   Foreground="#2C3E50"
+                                   Margin="0,0,0,8"/>
+                        <Separator Margin="0,0,0,4"/>
+
+                        <TextBlock Text="Student *" Style="{StaticResource FormLabel}"/>
+                        <ComboBox ItemsSource="{Binding Students}"
+                                  SelectedItem="{Binding SelectedStudent}"
+                                  DisplayMemberPath="Name"
+                                  Height="32"/>
+
+                        <TextBlock Text="Subject ID *" Style="{StaticResource FormLabel}"/>
+                        <TextBox Text="{Binding SubjectId, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource FormBox}"/>
+
+                        <TextBlock Text="Grade (A–F) *" Style="{StaticResource FormLabel}"/>
+                        <!-- DropDownList prevents free text — only valid grades selectable -->
+                        <ComboBox ItemsSource="{Binding GradeOptions}"
+                                  SelectedItem="{Binding Grade}"
+                                  Height="32"/>
+
+                        <TextBlock Text="Date" Style="{StaticResource FormLabel}"/>
+                        <DatePicker SelectedDate="{Binding GradeDate}"
+                                    Height="32"/>
+
+                        <Button Content="Add Entry"
+                                Command="{Binding AddEntryCommand}"
+                                Style="{StaticResource ActionButton}"
+                                Background="#27AE60"
+                                Foreground="White"
+                                Margin="0,12,0,0"/>
+
+                        <Button Content="Clear"
+                                Command="{Binding ClearFormCommand}"
+                                Style="{StaticResource ActionButton}"
+                                Background="#95A5A6"
+                                Foreground="White"
+                                Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Report panel -->
+                <Border Background="White"
+                        BorderBrush="#BDC3C7"
+                        BorderThickness="1"
+                        Padding="16">
+                    <StackPanel>
+                        <TextBlock Text="Generate Report"
+                                   FontSize="15"
+                                   FontWeight="Bold"
+                                   Foreground="#2C3E50"
+                                   Margin="0,0,0,8"/>
+                        <Separator Margin="0,0,0,4"/>
+
+                        <TextBlock Text="Subject ID *" Style="{StaticResource FormLabel}"/>
+                        <TextBox Text="{Binding ReportSubjectId, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource FormBox}"/>
+
+                        <TextBlock Text="Period (e.g. HT 2024)" Style="{StaticResource FormLabel}"/>
+                        <TextBox Text="{Binding ReportPeriod, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{StaticResource FormBox}"/>
+
+                        <Button Content="Generate"
+                                Command="{Binding GenerateReportCommand}"
+                                Style="{StaticResource ActionButton}"
+                                Background="#8E44AD"
+                                Foreground="White"
+                                Margin="0,12,0,8"/>
+
+                        <!-- Read-only output — shows report + grade distribution -->
+                        <TextBox Text="{Binding ReportOutput, Mode=OneWay}"
+                                 IsReadOnly="True"
+                                 TextWrapping="Wrap"
+                                 MinHeight="80"
+                                 Padding="6"
+                                 Background="#F8F9FA"
+                                 BorderBrush="#BDC3C7"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
