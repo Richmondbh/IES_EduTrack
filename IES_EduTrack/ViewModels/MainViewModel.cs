@@ -10,7 +10,7 @@ using System.Windows.Input;
 namespace IES_EduTrack.ViewModels
 {
     /// <summary>
-    /// Root ViewModel — owns all service instances and coordinates
+    /// MainModel — owns all service instances and coordinates
     /// navigation between the three main views via CurrentViewModel.
     /// </summary>
     public class MainViewModel : BaseViewModel
@@ -38,7 +38,7 @@ namespace IES_EduTrack.ViewModels
         public ICommand ShowAttendanceCommand { get; }
         public ICommand ShowGradesCommand { get; }
 
-        // Constructor — creates all services here; they are never created elsewhere
+        // creates all services here; they are never created elsewhere
         public MainViewModel()
         {
             _fileService = new FileService();

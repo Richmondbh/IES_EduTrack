@@ -43,14 +43,14 @@
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Left: record list -->
+            <!-- Left: record list here -->
             <Grid Grid.Column="0" Margin="0,0,16,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Filter bar -->
+                <!-- Filter bar here -->
                 <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
                     <TextBlock Text="Filter by student:"
                                VerticalAlignment="Center"
@@ -96,7 +96,7 @@
                         BorderBrush="#BDC3C7"
                         BorderThickness="1"
                         Padding="16"
-                        Margin="0,0,0,12">
+                        Margin="0,0,0,10">
                     <StackPanel>
                         <TextBlock Text="Record Attendance"
                                    FontSize="15"
@@ -157,7 +157,7 @@
                         <TextBox Text="{Binding ReportSubjectId, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource FormBox}"/>
 
-                        <TextBlock Text="Period (e.g. HT 2024)" Style="{StaticResource FormLabel}"/>
+                        <TextBlock Text="Period (e.g. HT 2026)" Style="{StaticResource FormLabel}"/>
                         <TextBox Text="{Binding ReportPeriod, UpdateSourceTrigger=PropertyChanged}"
                                  Style="{StaticResource FormBox}"/>
 

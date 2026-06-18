@@ -11,8 +11,8 @@ using System.Windows.Input;
 namespace IES_EduTrack.ViewModels
 {
     /// <summary>
-    /// Manages the grade view — add and remove grade entries,
-    /// view a student's grade history, and generate grade reports.
+    /// Manages the grade view  add and remove grade entries,
+    /// view a student's grade history, and it generates  grade reports.
     /// </summary>
     public class GradeViewModel : BaseViewModel
     {
@@ -95,7 +95,7 @@ namespace IES_EduTrack.ViewModels
             set { _reportOutput = value; OnPropertyChanged(nameof(ReportOutput)); }
         }
 
-        // Valid Swedish grade values — used for ComboBox binding
+        // Valid Swedish grade values used for ComboBox binding
         public string[] GradeOptions { get; } = { "A", "B", "C", "D", "E", "F" };
 
         public ICommand AddEntryCommand { get; }
@@ -104,7 +104,7 @@ namespace IES_EduTrack.ViewModels
         public ICommand GenerateReportCommand { get; }
         public ICommand ClearFormCommand { get; }
 
-        // Constructor — sets today as default date, loads students and all entries
+        // sets today as default date, loads students and all entries
         public GradeViewModel(GradeService gradeService, StudentService studentService)
         {
             _gradeService = gradeService;
@@ -195,7 +195,7 @@ namespace IES_EduTrack.ViewModels
                 _reportPeriod.Trim());
 
             ReportOutput = report.GenerateReport()
-                + System.Environment.NewLine
+                +Environment.NewLine //+ "\n"
                 + report.GetGradeDistribution();
         }
 
