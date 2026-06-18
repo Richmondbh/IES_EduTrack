@@ -91,7 +91,7 @@
             <!-- Right: two panels stacked -->
             <StackPanel Grid.Column="1">
 
-                <!-- Add record form -->
+                <!-- This Adds record form -->
                 <Border Background="White"
                         BorderBrush="#BDC3C7"
                         BorderThickness="1"
@@ -168,7 +168,7 @@
                                 Foreground="White"
                                 Margin="0,12,0,8"/>
 
-                        <!-- Read-only output -->
+                        <!-- Read-only output here -->
                         <TextBox Text="{Binding ReportOutput, Mode=OneWay}"
                                  IsReadOnly="True"
                                  TextWrapping="Wrap"

@@ -89,7 +89,7 @@
                     </ListBox>
                 </Border>
 
-                <!-- Remove button below list -->
+                <!-- ThisRemoves button below list -->
                 <Button Grid.Row="2"
                         Content="Remove Selected Entry"
                         Command="{Binding RemoveEntryCommand}"
@@ -103,7 +103,7 @@
             <!-- Right: two panels stacked -->
             <StackPanel Grid.Column="1">
 
-                <!-- Add grade form -->
+                <!-- Adds grade form -->
                 <Border Background="White"
                         BorderBrush="#BDC3C7"
                         BorderThickness="1"
@@ -128,7 +128,7 @@
                                  Style="{StaticResource FormBox}"/>
 
                         <TextBlock Text="Grade (A–F) *" Style="{StaticResource FormLabel}"/>
-                        <!-- DropDownList prevents free text — only valid grades selectable -->
+                        <!-- DropDownList prevents free text  and only valid grades are selectable -->
                         <ComboBox ItemsSource="{Binding GradeOptions}"
                                   SelectedItem="{Binding Grade}"
                                   Height="32"/>
@@ -181,7 +181,7 @@
                                 Foreground="White"
                                 Margin="0,12,0,8"/>
 
-                        <!-- Read-only output — shows report + grade distribution -->
+                        <!-- Read-only output which shows report + grade distribution -->
                         <TextBox Text="{Binding ReportOutput, Mode=OneWay}"
                                  IsReadOnly="True"
                                  TextWrapping="Wrap"
