@@ -8,7 +8,7 @@ A WPF desktop application for managing student records, class attendance, and su
 
 | Students | Attendance | Grades |
 |----------|------------|--------|
-| ![Students](screenshots/student_view.png) | ![Attendance](screenshots/attendance_view.png) | ![Grades](screenshots/grade_view.png) |
+| ![Students](IES_EduTrack/Screenshots/students.png) | ![Attendance](IES_EduTrack/Screenshots/attendance.png) | ![Grades](IES_EduTrack/Screenshots/grades.png) |
 
 ---
 
